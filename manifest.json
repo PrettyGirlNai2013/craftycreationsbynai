@@ -1,0 +1,17 @@
+{
+  "name": "CraftyCreationsByNai",
+  "short_name": "CraftyCreations",
+  "description": "Cute handmade bracelets, necklaces, and keychains!",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff8fc",
+  "theme_color": "#ffd6e9",
+  "icons": [
+    {
+      "src": "./craftycreations-logo.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}
