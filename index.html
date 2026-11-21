@@ -247,6 +247,13 @@ footer span {
 </div>
 
 <section id="shop">
+  <div class="shop-categories">
+  <button onclick="filterProducts('all')">All Products</button>
+  <button onclick="filterProducts('bracelets')">Bracelets 🎀</button>
+  <button onclick="filterProducts('necklaces')">Necklaces 💎</button>
+  <button onclick="filterProducts('sets')">Matching Sets 💕</button>
+  <button onclick="filterProducts('keychains')">Keychains 🧸</button>
+</div>
   <h2>THE COLLECTION ♡</h2>
   <p class="subtitle">
     Find your next favorite piece.
@@ -358,11 +365,34 @@ footer span {
 
 let cart = [];
 
-function displayProducts() {
+function displayProducts(category = "all") {
   const container = document.getElementById("products");
   container.innerHTML = "";
 
-  products.forEach((product, index) => {
+  const filteredProducts = products.filter(product => {
+    if (category === "all") return true;
+
+    if (category === "bracelets") {
+      return product.name.toLowerCase().includes("bracelet");
+    }
+
+    if (category === "necklaces") {
+      return product.name.toLowerCase().includes("necklace");
+    }
+
+    if (category === "sets") {
+      return product.name.toLowerCase().includes("set");
+    }
+
+    if (category === "keychains") {
+      return product.name.toLowerCase().includes("keychain");
+    }
+
+    return true;
+  });
+
+  filteredProducts.forEach(product => {
+    const index = products.indexOf(product);
     const card = document.createElement("div");
     card.className = "product";
 
@@ -395,13 +425,18 @@ function displayProducts() {
       : "SOLD OUT";
 
     button.disabled = !product.inStock;
-
     button.onclick = () => addToCart(index);
 
     card.append(img, name, price, stock, button);
     container.appendChild(card);
   });
 }
+
+function filterProducts(category) {
+  displayProducts(category);
+}
+  
+
 
 function addToCart(index) {
   cart.push(index);
