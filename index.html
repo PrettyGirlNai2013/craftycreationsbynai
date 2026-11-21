@@ -473,18 +473,28 @@ input {
 ];
 
 let cart = [];
-function displayProducts(category = "all") {
-  const container = document.getElementById("products");
-  container.innerHTML = "";
+const filteredProducts = products.filter(product => {
+  if (category === "all") return true;
 
-  const filteredProducts = products.filter(product => {
-    if (category === "all") return true;
-    if (category === "bracelets") return product.name.toLowerCase().includes("bracelet");
-    if (category === "necklaces") return product.name.toLowerCase().includes("necklace");
-    if (category === "sets") return product.name.toLowerCase().includes("set");
-    if (category === "keychains") return product.name.toLowerCase().includes("keychain");
-    return true;
-  });
+  if (category === "bracelets") {
+    return ["Sugarplum Kisses", "Cherry Baby", "Blush Crush"]
+      .includes(product.name);
+  }
+
+  if (category === "necklaces") {
+    return product.name.toLowerCase().includes("necklace");
+  }
+
+  if (category === "sets") {
+    return product.name.toLowerCase().includes("set");
+  }
+
+  if (category === "keychains") {
+    return product.name.toLowerCase().includes("keychain");
+  }
+
+  return true;
+});
 
   filteredProducts.forEach(product => {
     const index = products.indexOf(product);
