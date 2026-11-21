@@ -473,55 +473,6 @@ input {
 ];
 
 let cart = [];
-const filteredProducts = products.filter(product => {
-  if (category === "all") return true;
-
-  if (category === "bracelets") {
-    return ["Sugarplum Kisses", "Cherry Baby", "Blush Crush"]
-      .includes(product.name);
-  }
-
-  if (category === "necklaces") {
-    return product.name.toLowerCase().includes("necklace");
-  }
-
-  if (category === "sets") {
-    return product.name.toLowerCase().includes("set");
-  }
-
-  if (category === "keychains") {
-    return product.name.toLowerCase().includes("keychain");
-  }
-
-  return true;
-});
-
-
-
-    plus.onclick = () => {
-      if (quantity < 20) {
-        quantity++;
-        quantityNumber.textContent = quantity;
-      }
-    };
-
-    quantityBox.append(minus, quantityNumber, plus);
-
-    const button = document.createElement("button");
-    button.className = product.inStock ? "button" : "button sold-button";
-    button.textContent = product.inStock ? "ADD TO BAG +" : "SOLD OUT";
-    button.disabled = !product.inStock;
-
-    button.onclick = () => {
-      for (let i = 0; i < quantity; i++) {
-        addToCart(index);
-      }
-    };
-
-    card.append(img, name, price, stock, quantityBox, button);
-    container.appendChild(card);
-  });
-}
 
 function displayProducts(category = "all") {
   const container = document.getElementById("products");
