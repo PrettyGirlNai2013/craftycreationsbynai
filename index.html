@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CraftyCreationsByNai</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff8fc;
+  color: #21151d;
+}
+
+header {
+  background: #080708;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+.logo {
+  width: 230px;
+  max-width: 90%;
+  display: block;
+  margin: auto;
+}
+
+header h1 {
+  color: #ff9dca;
+  font-family: Georgia, serif;
+  margin: 10px;
+}
+
+header p {
+  color: #e7b9d1;
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+nav {
+  background: #f7c9df;
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #24131d;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.hero {
+  background: linear-gradient(120deg,#080708,#492438);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero small {
+  color: #ff9dca;
+  letter-spacing: 4px;
+}
+
+.hero h2 {
+  font-size: clamp(40px,8vw,75px);
+  margin: 25px 0;
+}
+
+.hero span {
+  color: #ff9dca;
+}
+
+.hero p {
+  margin-bottom: 30px;
+  color: #f2d9e6;
+}
+
+.button {
+  background: #f58cba;
+  color: #170c13;
+  padding: 14px 25px;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+}
+
+section {
+  padding: 60px 7%;
+  text-align: center;
+}
+
+section h2 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  color: #a36d88;
+  margin-bottom: 35px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+  gap: 25px;
+}
+
+.product {
+  background: white;
+  border: 1px solid #efd0df;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.product img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  background: #f6e1eb;
+}
+
+.product h3 {
+  margin: 15px 0 8px;
+}
+
+.price {
+  color: #b94f83;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.stock {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.available {
+  color: green;
+}
+
+.sold {
+  color: #c04462;
+}
+
+.product button {
+  width: 100%;
+}
+
+.sold-button {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.about {
+  background: #f8d9e7;
+  line-height: 1.9;
+}
+
+.cart-box {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border: 1px solid #efd0df;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  gap: 10px;
+}
+
+.remove {
+  color: #b94f83;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.total {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+footer {
+  background: #080708;
+  color: white;
+  text-align: center;
+  padding: 35px;
+  line-height: 2;
+}
+
+footer span {
+  color: #ff9dca;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="images/logo.png"
+  alt="CraftyCreationsByNai Logo"
+  class="logo">
+
+  <h1>CraftyCreationsByNai</h1>
+  <p>BRACELETS • CHARMS • KEYCHAINS</p>
+</header>
+
+<nav>
+  <a href="#home">HOME</a>
+  <a href="#shop">SHOP</a>
+  <a href="#about">ABOUT</a>
+  <a href="#cart">MY BAG 🛍</a>
+</nav>
+
+<div class="hero" id="home">
+  <small>✦ WELCOME TO MY SHOP ✦</small>
+
+  <h2>YOUR STYLE.<br>
+  <span>YOUR CREATION.</span></h2>
+
+  <p>Handmade accessories that make a statement.</p>
+
+  <a href="#shop" class="button">
+    SHOP NOW ↗
+  </a>
+</div>
+
+<section id="shop">
+  <h2>THE COLLECTION ♡</h2>
+  <p class="subtitle">
+    Find your next favorite piece.
+  </p>
+
+  <div class="products" id="products"></div>
+</section>
+
+<section class="about" id="about">
+  <h2>ABOUT THE BRAND ♡</h2>
+
+  <p>
+    Welcome to CraftyCreationsByNai!
+    A creative space filled with handmade
+    bracelets, charms and keychains.
+    Every piece is made with love,
+    creativity and its own unique style.
+    Thank you for supporting my small business!
+  </p>
+</section>
+
+<section id="cart">
+  <h2>YOUR SHOPPING BAG 🛍</h2>
+  <p class="subtitle">Your favorites in one place.</p>
+
+  <div class="cart-box">
+    <div id="cart-items">
+      Your bag is empty ♡
+    </div>
+
+    <div class="total" id="total">
+      Total: $0.00
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h2>CraftyCreationsByNai <span>♡</span></h2>
+  <p>Handmade with love. Created with style.</p>
+  <p>© 2026 CraftyCreationsByNai</p>
+</footer>
+
+<script>
+
+// ADD YOUR BRACELETS HERE
+
+const products = [
+  {
+    name: "Pink Heart Bracelet",
+    price: 12.00,
+    image: "images/bracelet1.jpg",
+    inStock: true
+  },
+  {
+    name: "Pearl Bracelet",
+    price: 10.00,
+    image: "images/bracelet2.jpg",
+    inStock: true
+  },
+  {
+    name: "Custom Charm Bracelet",
+    price: 15.00,
+    image: "images/bracelet3.jpg",
+    inStock: false
+  }
+];
+
+let cart = [];
+
+function displayProducts() {
+  const container = document.getElementById("products");
+  container.innerHTML = "";
+
+  products.forEach((product, index) => {
+    const card = document.createElement("div");
+    card.className = "product";
+
+    const img = document.createElement("img");
+    img.src = product.image;
+    img.alt = product.name;
+
+    const name = document.createElement("h3");
+    name.textContent = product.name;
+
+    const price = document.createElement("p");
+    price.className = "price";
+    price.textContent = "$" + product.price.toFixed(2);
+
+    const stock = document.createElement("p");
+    stock.className = "stock " +
+      (product.inStock ? "available" : "sold");
+
+    stock.textContent = product.inStock
+      ? "● IN STOCK"
+      : "● SOLD OUT";
+
+    const button = document.createElement("button");
+    button.className = product.inStock
+      ? "button"
+      : "button sold-button";
+
+    button.textContent = product.inStock
+      ? "ADD TO BAG +"
+      : "SOLD OUT";
+
+    button.disabled = !product.inStock;
+
+    button.onclick = () => addToCart(index);
+
+    card.append(img, name, price, stock, button);
+    container.appendChild(card);
+  });
+}
+
+function addToCart(index) {
+  cart.push(index);
+  updateCart();
+}
+
+function removeFromCart(position) {
+  cart.splice(position, 1);
+  updateCart();
+}
+
+function updateCart() {
+  const items = document.getElementById("cart-items");
+  const total = document.getElementById("total");
+
+  items.innerHTML = "";
+  let sum = 0;
+
+  cart.forEach((index, position) => {
+    const product = products[index];
+    sum += product.price;
+
+    const row = document.createElement("div");
+    row.className = "cart-item";
+
+    const name = document.createElement("span");
+    name.textContent = product.name + " - $" +
+      product.price.toFixed(2);
+
+    const remove = document.createElement("button");
+    remove.className = "remove";
+    remove.textContent = "REMOVE";
+    remove.onclick = () => removeFromCart(position);
+
+    row.append(name, remove);
+    items.appendChild(row);
+  });
+
+  if (cart.length === 0) {
+    items.textContent = "Your bag is empty ♡";
+  }
+
+  total.textContent = "Total: $" + sum.toFixed(2);
+}
+
+displayProducts();
+
+</script>
+
+</body>
+</html>
