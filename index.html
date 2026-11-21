@@ -412,31 +412,16 @@ footer span {
 ];
 
 let cart = [];
-
-
 function displayProducts(category = "all") {
   const container = document.getElementById("products");
   container.innerHTML = "";
 
   const filteredProducts = products.filter(product => {
     if (category === "all") return true;
-
-    if (category === "bracelets") {
-      return product.name.toLowerCase().includes("bracelet");
-    }
-
-    if (category === "necklaces") {
-      return product.name.toLowerCase().includes("necklace");
-    }
-
-    if (category === "sets") {
-      return product.name.toLowerCase().includes("set");
-    }
-
-    if (category === "keychains") {
-      return product.name.toLowerCase().includes("keychain");
-    }
-
+    if (category === "bracelets") return product.name.toLowerCase().includes("bracelet");
+    if (category === "necklaces") return product.name.toLowerCase().includes("necklace");
+    if (category === "sets") return product.name.toLowerCase().includes("set");
+    if (category === "keychains") return product.name.toLowerCase().includes("keychain");
     return true;
   });
 
@@ -457,48 +442,58 @@ function displayProducts(category = "all") {
     price.textContent = "$" + product.price.toFixed(2);
 
     const stock = document.createElement("p");
-    stock.className = "stock " +
-      (product.inStock ? "available" : "sold");
+    stock.className = "stock " + (product.inStock ? "available" : "sold");
+    stock.textContent = product.inStock ? "● IN STOCK" : "● SOLD OUT";
 
-    stock.textContent = product.inStock
-      ? "● IN STOCK"
-      : "● SOLD OUT";
+    let quantity = 1;
 
-    const quantity = document.createElement("input");
-    quantity.type = "number";
-    quantity.min = "1";
-    quantity.max = "20";
-    quantity.value = "1";
-    quantity.className = "quantity";
+    const quantityBox = document.createElement("div");
+    quantityBox.className = "quantity-box";
+
+    const minus = document.createElement("button");
+    minus.textContent = "−";
+    minus.type = "button";
+
+    const quantityNumber = document.createElement("span");
+    quantityNumber.textContent = quantity;
+
+    const plus = document.createElement("button");
+    plus.textContent = "+";
+    plus.type = "button";
+
+    minus.onclick = () => {
+      if (quantity > 1) {
+        quantity--;
+        quantityNumber.textContent = quantity;
+      }
+    };
+
+    plus.onclick = () => {
+      if (quantity < 20) {
+        quantity++;
+        quantityNumber.textContent = quantity;
+      }
+    };
+
+    quantityBox.append(minus, quantityNumber, plus);
 
     const button = document.createElement("button");
-    button.className = product.inStock
-      ? "button"
-      : "button sold-button";
-
-    button.textContent = product.inStock
-      ? "ADD TO BAG +"
-      : "SOLD OUT";
-
+    button.className = product.inStock ? "button" : "button sold-button";
+    button.textContent = product.inStock ? "ADD TO BAG +" : "SOLD OUT";
     button.disabled = !product.inStock;
 
     button.onclick = () => {
-      const amount = Number(quantity.value);
-
-      if (!Number.isInteger(amount) || amount < 1 || amount > 20) {
-        alert("Please choose a quantity from 1 to 20.");
-        return;
-      }
-
-      for (let i = 0; i < amount; i++) {
+      for (let i = 0; i < quantity; i++) {
         addToCart(index);
       }
     };
 
-    card.append(img, name, price, stock, quantity, button);
+    card.append(img, name, price, stock, quantityBox, button);
     container.appendChild(card);
   });
 }
+
+
 
 function filterProducts(category) {
   displayProducts(category);
