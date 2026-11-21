@@ -386,6 +386,7 @@ footer span {
 
 let cart = [];
 
+
 function displayProducts(category = "all") {
   const container = document.getElementById("products");
   container.innerHTML = "";
@@ -436,45 +437,46 @@ function displayProducts(category = "all") {
       ? "● IN STOCK"
       : "● SOLD OUT";
 
-   
-const quantity = document.createElement("input");
-quantity.type = "number";
-quantity.min = "1";
-quantity.max = "20";
-quantity.value = "1";
-quantity.className = "quantity";
+    const quantity = document.createElement("input");
+    quantity.type = "number";
+    quantity.min = "1";
+    quantity.max = "20";
+    quantity.value = "1";
+    quantity.className = "quantity";
 
-const button = document.createElement("button");
-button.className = product.inStock
-  ? "button"
-  : "button sold-button";
+    const button = document.createElement("button");
+    button.className = product.inStock
+      ? "button"
+      : "button sold-button";
 
-button.textContent = product.inStock
-  ? "ADD TO BAG +"
-  : "SOLD OUT";
+    button.textContent = product.inStock
+      ? "ADD TO BAG +"
+      : "SOLD OUT";
 
-button.disabled = !product.inStock;
-button.onclick = () => {
-  const amount = Number(quantity.value);
+    button.disabled = !product.inStock;
 
-  if (!Number.isInteger(amount) || amount < 1 || amount > 20) {
-    alert("Please choose a quantity from 1 to 20.");
-    return;
-  }
+    button.onclick = () => {
+      const amount = Number(quantity.value);
 
-  for (let i = 0; i < amount; i++) {
-    addToCart(index);
-  }
-};
+      if (!Number.isInteger(amount) || amount < 1 || amount > 20) {
+        alert("Please choose a quantity from 1 to 20.");
+        return;
+      }
 
-card.append(img, name, price, stock, quantity, button);
-container.appendChild(card);
- 
+      for (let i = 0; i < amount; i++) {
+        addToCart(index);
+      }
+    };
+
+    card.append(img, name, price, stock, quantity, button);
+    container.appendChild(card);
+  });
+}
 
 function filterProducts(category) {
   displayProducts(category);
 }
-  
+
 
 
 function addToCart(index) {
