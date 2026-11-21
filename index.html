@@ -288,6 +288,26 @@ footer span {
       Total: $0.00
     </div>
   </div>
+
+<section id="checkout">
+  <h2>CHECKOUT 🎀</h2>
+  <p class="subtitle">Let's get your order started!</p>
+
+  <form action="https://formspree.io/f/mvkabave" method="POST">
+    <input type="text" name="Customer Name"
+      placeholder="Your full name" required>
+
+    <input type="email" name="Email"
+      placeholder="Your email address" required>
+
+    <input type="text" name="Contact"
+      placeholder="Best way to contact you" required>
+
+    <input type="hidden" name="Order Items" id="order-details">
+    <input type="hidden" name="Order Total" id="order-total">
+
+    <button type="submit">SUBMIT MY ORDER 💗</button>
+  </form>
 </section>
 
 <footer>
@@ -480,6 +500,11 @@ function updateCart() {
   }
 
   total.textContent = "Total: $" + sum.toFixed(2);
+  document.getElementById("order-details").value =
+  cart.map(index => products[index].name).join(", ");
+
+document.getElementById("order-total").value =
+  "$" + sum.toFixed(2);
 }
 
 displayProducts();
