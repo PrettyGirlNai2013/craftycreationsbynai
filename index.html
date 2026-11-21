@@ -293,7 +293,7 @@ footer span {
   <h2>CHECKOUT 🎀</h2>
   <p class="subtitle">Let's get your order started!</p>
 
-  <form action="https://formspree.io/f/mvkabave" method="POST">
+  <form action="https://formspree.io/f/mvkabave" method="POST" onsubmit="return validateCheckout()">
     <input type="text" name="Customer Name"
       placeholder="Your full name" required>
 
@@ -306,6 +306,7 @@ footer span {
     <input type="hidden" name="Order Items" id="order-details">
     <input type="hidden" name="Order Total" id="order-total">
 
+    <p id="checkout-message"></p>
     <button type="submit">SUBMIT MY ORDER 💗</button>
   </form>
 </section>
@@ -505,10 +506,22 @@ function updateCart() {
 
 document.getElementById("order-total").value =
   "$" + sum.toFixed(2);
+  document.getElementById("checkout-message").textContent =
+  cart.length === 0
+    ? "Please add an item to your bag before checking out ♡"
+    : "";
 }
 
 displayProducts();
+function validateCheckout() {
+  if (cart.length === 0) {
+    document.getElementById("checkout-message").textContent =
+      "Your bag is empty! Please add an item first ♡";
+    return false;
+  }
 
+  return true;
+}
 </script>
 
 </body>
