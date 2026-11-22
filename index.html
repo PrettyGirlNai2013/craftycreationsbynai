@@ -528,6 +528,61 @@ input {
   line-height: 1.7;
   margin-bottom: 0;
 }
+  .hero {
+  margin: 35px auto;
+  padding: 55px 25px;
+  max-width: 1200px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe4f1, #eee1ff, #e2f5ff);
+  border: 2px solid #f4c3df;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(220, 150, 190, 0.18);
+}
+
+.hero-content {
+  max-width: 750px;
+  margin: auto;
+}
+
+.hero-tag {
+  color: #bd5790;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.hero h2 {
+  color: #a65c91;
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 18px 0;
+}
+
+.hero-description {
+  color: #8d6680;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.hero-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #f5a9ce, #d8b5f0);
+  color: white;
+  padding: 15px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 12px rgba(220, 150, 190, 0.2);
+}
+
+.hero-sparkles {
+  color: #bd5790;
+  font-size: 23px;
+  margin-top: 25px;
+}
 </style>
 </head>
 
@@ -541,7 +596,24 @@ input {
   <h1>CraftyCreationsByNai</h1>
   <p>BRACELETS • CHARMS • KEYCHAINS</p>
 </header>
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-tag">♡ HANDMADE WITH LOVE ♡</p>
 
+    <h2>Welcome to<br>CraftyCreationsByNai!</h2>
+
+    <p class="hero-description">
+      Cute accessories, sweet little details,
+      and handmade creations made just for you!
+    </p>
+
+    <a href="#products" class="hero-button">
+      SHOP NOW ♡
+    </a>
+
+    <p class="hero-sparkles">✿ ♡ ✧ 🎀 ✧ ♡ ✿</p>
+  </div>
+</section>
 <nav>
   <a href="#home">HOME</a>
   <a href="#shop">SHOP</a>
