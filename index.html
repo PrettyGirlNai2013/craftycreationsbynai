@@ -415,7 +415,57 @@ input {
   border-radius: 12px;
   padding: 12px;
 }  
-  
+ #reviews {
+  max-width: 1100px;
+  margin: 45px auto;
+  padding: 30px 20px;
+  text-align: center;
+  background: linear-gradient(145deg, #fff7fb, #f8f0ff);
+  border: 2px solid #f4c3df;
+  border-radius: 28px;
+  box-shadow: 0 8px 20px rgba(220, 150, 190, 0.15);
+}
+
+#reviews h2 {
+  color: #bd5790;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+#reviews .subtitle {
+  color: #a87999;
+  margin-bottom: 25px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background: white;
+  padding: 22px;
+  border: 2px solid #f5d3e5;
+  border-radius: 22px;
+  box-shadow: 0 5px 14px rgba(220, 150, 190, 0.12);
+}
+
+.stars {
+  color: #f2b84b;
+  font-size: 23px;
+  letter-spacing: 3px;
+}
+
+.review-card p {
+  color: #8d6680;
+  line-height: 1.6;
+}
+
+.review-card h3 {
+  color: #bd5790;
+  font-size: 15px;
+} 
 </style>
 </head>
 
@@ -754,6 +804,31 @@ function validateCheckout() {
   return true;
 }
 </script>
+<section id="reviews">
+  <h2>CUSTOMER LOVE ⭐</h2>
+  <p class="subtitle">A little love from our lovely customers!</p>
 
+  <div class="review-grid">
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"My bracelet is so cute! I love it!"</p>
+      <h3>♡ Happy Customer</h3>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Everything was so pretty and made with love!"</p>
+      <h3>♡ Happy Customer</h3>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"I can't wait to order again!"</p>
+      <h3>♡ Happy Customer</h3>
+    </div>
+
+  </div>
+</section>
 </body>
 </html>
