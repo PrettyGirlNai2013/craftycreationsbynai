@@ -583,6 +583,36 @@ input {
   font-size: 23px;
   margin-top: 25px;
 }
+  .main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px;
+  margin: 20px auto;
+  background: linear-gradient(135deg, #fff0f7, #f2eaff);
+  border: 2px solid #f4c3df;
+  border-radius: 25px;
+  max-width: 1100px;
+  box-shadow: 0 5px 15px rgba(220, 150, 190, 0.15);
+}
+
+.main-nav a {
+  color: #bd5790;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 11px 15px;
+  border-radius: 20px;
+  transition: 0.25s ease;
+}
+
+.main-nav a:hover {
+  background: #f8d7eb;
+  color: #945080;
+  transform: translateY(-2px);
+}
 </style>
 </head>
 
@@ -614,14 +644,16 @@ input {
     <p class="hero-sparkles">✿ ♡ ✧ 🎀 ✧ ♡ ✿</p>
   </div>
 </section>
-<nav>
-  <a href="#home">HOME</a>
-  <a href="#shop">SHOP</a>
-  <a href="#about">ABOUT</a>
-  <a href="#cart">MY BAG 🛍</a>
+<nav class="main-nav">
+  <a href="#home">HOME 🏠</a>
+  <a href="#products">SHOP 🛍️</a>
+  <a href="#reviews">CUSTOMER LOVE ⭐</a>
+  <a href="#faq">FAQ 💌</a>
+  <a href="#cart">MY BAG 🛍️</a>
+  <a href="#checkout">CHECKOUT 💗</a>
 </nav>
 
-<div class="hero" id="home">
+<div class="hero" id="home">l
   <small>✦ WELCOME TO MY SHOP ✦</small>
 
   <h2>YOUR STYLE.<br>
